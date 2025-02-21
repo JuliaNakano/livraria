@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('preco_livro', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
             $table->foreignId('livro_id')->references('id')->on('livro')->onDelete('cascade')->onUpdate('cascade');;
             $table->double('valor');
             $table->date('data');

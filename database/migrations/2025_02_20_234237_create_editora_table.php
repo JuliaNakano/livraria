@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('editora', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
             $table->string('cnpj', 18)->unique();
             $table->string('nome', 45);
             $table->timestamps();

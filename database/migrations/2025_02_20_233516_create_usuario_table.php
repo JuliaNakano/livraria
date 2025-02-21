@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usuario', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
             $table->string('userName', 50);
             $table->string('senha', 50);
             $table->foreignId('funcionario_id')->references('id')->on('funcionario')->onDelete('cascade')->onUpdate('cascade');

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('logs', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
             $table->foreignId('usuario_id')->references('id')->on('usuario')->onDelete('cascade')->onUpdate('cascade');;
             $table->string('tabela', 50);
             $table->enum('acao', ['INSERT', 'UPDATE', 'DELETE']);
