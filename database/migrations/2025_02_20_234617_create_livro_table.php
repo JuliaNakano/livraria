@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('livro', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('fornecedor_id')->constrained('fornecedor');
-            $table->foreignId('editora_id')->constrained('editora');
+            $table->foreignId('fornecedor_id')->references('id')->on('fornecedor')->onDelete('cascade')->onUpdate('cascade');;
+            $table->foreignId('editora_id')->references('id')->on('editora')->onDelete('cascade')->onUpdate('cascade');;
             $table->string('nome', 100);
             $table->integer('quantidade');
             $table->timestamp('dataCadastro')->useCurrent();

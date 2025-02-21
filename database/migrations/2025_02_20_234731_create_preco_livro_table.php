@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('preco_livro', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('livro_id')->constrained('livro');
+            $table->foreignId('livro_id')->references('id')->on('livro')->onDelete('cascade')->onUpdate('cascade');;
             $table->double('valor');
             $table->date('data');
             $table->timestamps();

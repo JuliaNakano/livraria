@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('userName', 50);
             $table->string('senha', 50);
-            $table->foreignId('funcionario_id')->constrained('funcionario');
+            $table->foreignId('funcionario_id')->references('id')->on('funcionario')->onDelete('cascade')->onUpdate('cascade');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

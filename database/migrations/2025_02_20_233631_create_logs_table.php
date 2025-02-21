@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usuario_id')->constrained('usuario');
+            $table->foreignId('usuario_id')->references('id')->on('usuario')->onDelete('cascade')->onUpdate('cascade');;
             $table->string('tabela', 50);
             $table->enum('acao', ['INSERT', 'UPDATE', 'DELETE']);
             $table->text('dadosAntigos')->nullable();

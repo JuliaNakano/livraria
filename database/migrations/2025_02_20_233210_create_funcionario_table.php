@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('funcionario', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('Cargo_id')->constrained('cargo');//identifica uma relação 
+            $table->foreignId('cargo_id')->references('id')->on('cargo')->onDelete('cascade')->onUpdate('cascade');//identifica uma relação 
             $table->string('nome', 100);
             $table->double('salario');
             $table->string('cpf', 11)->unique(); //não permite que essa chave se repita 

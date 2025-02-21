@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('venda', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('dataHora')->useCurrent();
             $table->foreignId('cliente_id')->constrained('cliente');
-            $table->foreignId('funcionario_id')->constrained('funcionario');
+            $table->foreignId('funcionario_id')->references('id')->on('funcionario')->onDelete('cascade')->onUpdate('cascade');;
             $table->timestamps();
         });
     }
